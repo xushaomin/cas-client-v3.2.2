@@ -6,7 +6,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jasig.cas.client</groupId>
-    <version>3.2.2-SNAPSHOT</version>
+    <version>3.2.2.RELEASE</version>
     <artifactId>cas-client</artifactId>
     <packaging>pom</packaging>
     <name>Jasig CAS Client for Java</name>
@@ -184,15 +184,16 @@ NwXMoqnmqmUUnosrspqmmmmmmUUnosrspqmmmmmmUUA1jJ
     
     <distributionManagement>
 		<repository>
-			<id>nexus-releases</id>
-			<name>Local Nexus Releases Repository</name>
+			<id>apple-releases</id>
+			<name>Apple Releases Repository</name>
 			<url>http://mvnrepo.appleframework.com/nexus/content/repositories/releases</url>
 		</repository>
 
 		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<name>Local Nexus Snapshots Repository</name>
+			<id>apple-snapshots</id>
+			<name>Apple Snapshots Repository</name>
 			<url>http://mvnrepo.appleframework.com/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
+	
 </project>
