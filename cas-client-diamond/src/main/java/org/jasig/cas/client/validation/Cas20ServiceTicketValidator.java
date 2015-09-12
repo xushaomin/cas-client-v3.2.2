@@ -19,6 +19,8 @@
 
 package org.jasig.cas.client.validation;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.jasig.cas.client.authentication.AttributePrincipal;
 import org.jasig.cas.client.authentication.AttributePrincipalImpl;
 import org.jasig.cas.client.proxy.Cas20ProxyRetriever;
@@ -44,6 +46,9 @@ import java.util.Map;
  * @since 3.1
  */
 public class Cas20ServiceTicketValidator extends AbstractCasProtocolUrlBasedTicketValidator {
+
+    /** Logger instance */
+    private final Log log = LogFactory.getLog(getClass());
 
     /** The CAS 2.0 protocol proxy callback url. */
     private String proxyCallbackUrl;
@@ -79,7 +84,12 @@ public class Cas20ServiceTicketValidator extends AbstractCasProtocolUrlBasedTick
     }
 
     protected final Assertion parseResponseFromServer(final String response) throws TicketValidationException {
-        final String error = XmlUtils.getTextForElement(response, "authenticationFailure");
+        
+    	if (log.isDebugEnabled()) {
+            log.debug("cas server response : " + response);
+        }
+    	
+    	final String error = XmlUtils.getTextForElement(response, "authenticationFailure");
 
         if (CommonUtils.isNotBlank(error)) {
             throw new TicketValidationException(error);
