@@ -7,7 +7,6 @@ import org.jasig.cas.client.util.CasPropertiesConfig;
 import org.jasig.cas.client.util.RequestURIFilter;
 import org.jasig.cas.client.util.ServletUtil;
 import org.jasig.cas.client.validation.Assertion;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -18,10 +17,7 @@ public class CasFilter extends AbstractConfigurationFilter {
 		
 	public static String SESSION_USER_KEY = "CAS_USER";
 	public static String SESSION_CAS_KEY  = "_const_cas_assertion_";
-	
-	@Autowired
-    private HttpServletRequest httpServletRequest;
-	
+		
 	/**
      * 过滤地址集合
      */
@@ -76,7 +72,6 @@ public class CasFilter extends AbstractConfigurationFilter {
 					user.setEmail(attributes.get("email").toString());
 				}
 				httpRequest.getSession().setAttribute(SESSION_USER_KEY, user);
-				httpServletRequest.getSession().setAttribute(SESSION_USER_KEY, user);
 			}
 		}
 		filterChain.doFilter(request, response);
