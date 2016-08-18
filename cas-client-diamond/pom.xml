@@ -100,7 +100,7 @@
 		<dependency>
 			<groupId>com.appleframework.config</groupId>
 			<artifactId>apple-config-core</artifactId>
-			<version>0.1.7.RELEASE</version>
+			<version>0.2.1.RELEASE</version>
 			<scope>provided</scope>
 		</dependency>
          
